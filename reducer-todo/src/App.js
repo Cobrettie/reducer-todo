@@ -7,7 +7,6 @@ import TodoList from './Components/TodoList/TodoList';
 function App() {
   const [toDoList, dispatch] = useReducer(reducer, initialState);
   const [newTodo, setNewTodo] = useState();
-  let id = 0
 
   console.log('initialState', initialState);
   // console.log('dispatch', dispatch)
