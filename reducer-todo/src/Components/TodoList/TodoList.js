@@ -6,10 +6,13 @@ export default function TodoList(props) {
     <div>
       <h2>Todo list component</h2>
       <div>
-        {props.toDoList.map(item => {
+        {props.toDoList.map(task => {
           return (
-            <div key={item.id}>
-              <p>{item.item}</p>
+            <div 
+              key={task.id}
+              onClick={() => props.dispatch({ type: 'COMPLETED', payload: task.id })}
+            >
+              <p>{task.item}</p>
             </div>
           )
         })}

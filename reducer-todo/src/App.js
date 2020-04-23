@@ -7,6 +7,7 @@ import TodoList from './Components/TodoList/TodoList';
 function App() {
   const [toDoList, dispatch] = useReducer(reducer, initialState);
   const [newTodo, setNewTodo] = useState();
+  let id = 0
 
   console.log('initialState', initialState);
   // console.log('dispatch', dispatch)
@@ -19,8 +20,12 @@ function App() {
   const handleSubmit = event => {
     event.preventDefault()
     console.log('testing submit')
-    dispatch({type: 'ADD_TODO', item: newTodo, id: Date.now() })
+    dispatch({ type: 'ADD_TODO', payload: newTodo })
   }
+
+  // const toggleCompleted = () => {
+  //   dispatch({ type: 'COMPLETED' })
+  // }
 
   return (
     <div className="App">
@@ -28,7 +33,11 @@ function App() {
         handleChanges={handleChanges}
         handleSubmit={handleSubmit}
       />
-      <TodoList toDoList={toDoList} />
+      <TodoList 
+        toDoList={toDoList} 
+        // toggleCompleted={toggleCompleted}
+        dispatch={dispatch}
+      />
     </div>
   );
 }

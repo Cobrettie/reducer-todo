@@ -4,11 +4,23 @@ export function reducer(state, action) {
       return [
         ...state,
         {
-          item: action.item,
+          item: action.payload,
           completed: false,
-          id: action.id
+          id: new Date()
         }
       ]
+    case 'COMPLETED':
+      return state.map(item => {
+        if (item.id === action.payload) {
+          return {
+            ...item,
+            completed: !item.completed
+          }
+        }
+        return item
+      })
+
+
     default:
       return 'default'
   }
