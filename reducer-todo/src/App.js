@@ -1,15 +1,16 @@
 import React, { useState, useReducer } from 'react';
 import { reducer, initialState } from './reducers/reducers';
-import TodoForm from './Components/Todo/TodoForm';
+import TodoForm from './Components/TodoForm/TodoForm';
 import './App.css';
+import TodoList from './Components/TodoList/TodoList';
 
 function App() {
-  const [toDoArray, dispatch] = useReducer(reducer, initialState);
+  const [toDoList, dispatch] = useReducer(reducer, initialState);
   const [newTodo, setNewTodo] = useState();
 
   console.log('initialState', initialState);
   // console.log('dispatch', dispatch)
-  console.log('toDoArray', toDoArray)
+  console.log('toDoList', toDoList)
 
   const handleChanges = event => {
     setNewTodo(event.target.value)
@@ -27,6 +28,7 @@ function App() {
         handleChanges={handleChanges}
         handleSubmit={handleSubmit}
       />
+      <TodoList toDoList={toDoList} />
     </div>
   );
 }
