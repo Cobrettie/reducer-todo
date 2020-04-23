@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useReducer } from 'react';
+import { reducer, initialState } from './reducers/reducers';
+import TodoForm from './Components/Todo/TodoForm';
 import './App.css';
 
 function App() {
+  const [toDoArray, dispatch] = useReducer(reducer, initialState);
+  const [newTodo, setNewTodo] = useState();
+
+  console.log('initialState', initialState);
+  // console.log('dispatch', dispatch)
+  console.log('toDoArray', toDoArray)
+
+  const handleChanges = event => {
+    setNewTodo(event.target.value)
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault()
+    console.log('testing submit')
+    dispatch({type: 'ADD_TODO', item: newTodo, id: Date.now() })
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TodoForm 
+        handleChanges={handleChanges}
+        handleSubmit={handleSubmit}
+      />
     </div>
   );
 }

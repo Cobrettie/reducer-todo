@@ -54,7 +54,7 @@ Follow these steps for completing your project.
 }
 ```
 
-- Export both the reducer and the initial state object
+- [x] Export both the reducer and the initial state object
 
 ### STEP 2 - Set up state in your component
 
