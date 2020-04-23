@@ -3,7 +3,6 @@ import React from 'react';
 export default function TodoForm(props) {
   return(
     <div>
-      <h2>Todo component</h2>
       <div>
         <form onSubmit={props.handleSubmit}>
           <label>
