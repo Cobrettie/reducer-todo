@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import '../../App.css';
 
 export default function TodoList(props) {
   console.log('TodoList component props', props)
@@ -10,6 +11,7 @@ export default function TodoList(props) {
           return (
             <div 
               key={task.id}
+              className={task.completed ? 'completed-task task' : 'task'}
               onClick={() => props.dispatch({ type: 'COMPLETED', payload: task.id })}
             >
               <p>{task.item}</p>
