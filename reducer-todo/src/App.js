@@ -8,17 +8,12 @@ function App() {
   const [toDoList, dispatch] = useReducer(reducer, initialState);
   const [newTodo, setNewTodo] = useState();
 
-  console.log('initialState', initialState);
-  // console.log('dispatch', dispatch)
-  console.log('toDoList', toDoList)
-
   const handleChanges = event => {
     setNewTodo(event.target.value)
   }
 
   const handleSubmit = event => {
     event.preventDefault()
-    console.log('testing submit')
     dispatch({ type: 'ADD_TODO', payload: newTodo })
   }
 
@@ -36,7 +31,6 @@ function App() {
       />
       <TodoList 
         toDoList={toDoList} 
-        // toggleCompleted={toggleCompleted}
         dispatch={dispatch}
       />
     </div>

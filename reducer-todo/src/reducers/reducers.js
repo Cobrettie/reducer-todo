@@ -4,20 +4,20 @@ export function reducer(state, action) {
       return [
         ...state,
         {
-          item: action.payload,
+          task: action.payload, // was item
           completed: false,
           id: new Date()
         }
       ]
     case 'COMPLETED':
-      return state.map(item => {
-        if (item.id === action.payload) {
+      return state.map(task => {
+        if (task.id === action.payload) {
           return {
-            ...item,
-            completed: !item.completed
+            ...task,
+            completed: !task.completed
           }
         }
-        return item
+        return task
       })
     case 'CLEAR_COMPLETED':
       return state.filter(task => !task.completed)
@@ -30,12 +30,12 @@ export function reducer(state, action) {
 
 export const initialState = [
   {
-    item: 'test item 1',
+    task: 'test item 1',
     completed: false,
     id: 392182
   },
   {
-    item: 'test item 2',
+    task: 'test item 2',
     completed: false,
     id: 392379
   }
