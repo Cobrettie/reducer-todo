@@ -22,9 +22,9 @@ function App() {
     dispatch({ type: 'ADD_TODO', payload: newTodo })
   }
 
-  // const toggleCompleted = () => {
-  //   dispatch({ type: 'COMPLETED' })
-  // }
+  const clearCompleted = () => {
+    dispatch({ type: 'CLEAR_COMPLETED' })
+  }
 
   return (
     <div className="App">
@@ -32,6 +32,7 @@ function App() {
       <TodoForm 
         handleChanges={handleChanges}
         handleSubmit={handleSubmit}
+        clearCompleted={clearCompleted}
       />
       <TodoList 
         toDoList={toDoList} 

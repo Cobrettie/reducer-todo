@@ -2,7 +2,7 @@ import React from 'react';
 import '../../App.css';
 
 export default function TodoList(props) {
-  console.log('TodoList component props', props)
+  // console.log('TodoList component props', props)
   return (
     <div>
       <h2>Todo list component</h2>

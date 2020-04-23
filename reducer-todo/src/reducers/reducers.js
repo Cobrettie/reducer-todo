@@ -19,6 +19,8 @@ export function reducer(state, action) {
         }
         return item
       })
+    case 'CLEAR_COMPLETED':
+      return state.filter(task => !task.completed)
 
 
     default:
